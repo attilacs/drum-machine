@@ -19,6 +19,7 @@ const DrumPad = ({ setDisplayText, drumPad }: DrumPadProps) => {
       className="drum-pad"
       id={`pad-${button}`}
     >
+      {button}
     </DrumPadStyled>
   );
 };
