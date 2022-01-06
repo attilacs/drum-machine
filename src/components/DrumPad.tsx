@@ -36,6 +36,7 @@ const DrumPad = ({ setDisplayText, drumPad }: DrumPadProps) => {
       audio.currentTime = 0;
       audio.play();
     }
+    pressButton();
     setDisplayText(getDisplayText(url));
   };
 
