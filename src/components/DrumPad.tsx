@@ -1,7 +1,26 @@
 import DrumPadStyled from "../styles/DrumPadStyled";
 
-const DrumPad = () => {
-  return <DrumPadStyled className="drum-pad"></DrumPadStyled>;
+interface DrumPadInterface {
+  button: string;
+  keyCode: number;
+  url: string;
+}
+
+interface DrumPadProps {
+  setDisplayText: React.Dispatch<React.SetStateAction<string>>;
+  drumPad: DrumPadInterface;
+}
+
+const DrumPad = ({ setDisplayText, drumPad }: DrumPadProps) => {
+  const { button, keyCode, url } = drumPad;
+
+  return (
+    <DrumPadStyled
+      className="drum-pad"
+      id={`pad-${button}`}
+    >
+    </DrumPadStyled>
+  );
 };
 
 export default DrumPad;
