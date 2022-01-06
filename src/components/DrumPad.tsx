@@ -26,6 +26,7 @@ const DrumPad = ({ setDisplayText, drumPad }: DrumPadProps) => {
       audio.currentTime = 0;
       audio.play();
     }
+    setDisplayText(getDisplayText(url));
   };
 
   return (
