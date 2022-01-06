@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DrumPadStyled from "../styles/DrumPadStyled";
 
 interface DrumPadInterface {
@@ -39,6 +39,20 @@ const DrumPad = ({ setDisplayText, drumPad }: DrumPadProps) => {
     pressButton();
     setDisplayText(getDisplayText(url));
   };
+
+  useEffect(() => {
+    const handlePress = (e: KeyboardEvent) => {
+      const eventKeyCode = e.keyCode;
+      if (eventKeyCode === keyCode) {
+        playSound();
+      }
+    };
+
+    document.addEventListener("keydown", handlePress);
+    return () => {
+      document.removeEventListener("keydown", handlePress);
+    };
+  }, []);
 
   return (
     <DrumPadStyled
