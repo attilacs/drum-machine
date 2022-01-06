@@ -1,5 +1,6 @@
 import ContainerStyled from "../styles/ContainerStyled";
 import Heading from "./Heading";
+import PadBank from "./PadBank";
 import { useState } from "react";
 
 const Container = () => {
@@ -8,6 +9,7 @@ const Container = () => {
   return (
     <ContainerStyled id="drum-machine">
       <Heading />
+      <PadBank setDisplayText={setDisplayText} />
     </ContainerStyled>
   );
 };
