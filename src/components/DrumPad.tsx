@@ -20,6 +20,7 @@ const DrumPad = ({ setDisplayText, drumPad }: DrumPadProps) => {
       id={`pad-${button}`}
     >
       {button}
+      <audio className="clip" src={url} id={button} />
     </DrumPadStyled>
   );
 };
