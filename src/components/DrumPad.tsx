@@ -1,3 +1,4 @@
+import { useState } from "react";
 import DrumPadStyled from "../styles/DrumPadStyled";
 
 interface DrumPadInterface {
@@ -14,10 +15,19 @@ interface DrumPadProps {
 const DrumPad = ({ setDisplayText, drumPad }: DrumPadProps) => {
   const { button, keyCode, url } = drumPad;
 
+  const [isPressed, setIsPressed] = useState(false);
+
   const getDisplayText = (url: string) => {
     const splitted = url.split("/");
     const title = splitted[splitted.length - 1];
     return title.replace(/-|_/g, " ").replace(/.mp3/gi, "");
+  };
+
+  const pressButton = () => {
+    setIsPressed(true);
+    setTimeout(() => {
+      setIsPressed(false);
+    }, 100);
   };
 
   const playSound = () => {
