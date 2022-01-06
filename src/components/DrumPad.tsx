@@ -42,6 +42,11 @@ const DrumPad = ({ setDisplayText, drumPad }: DrumPadProps) => {
 
   return (
     <DrumPadStyled
+      style={{
+        transform: `translateX(${isPressed ? "2px" : 0}) translateY(${
+          isPressed ? "2px" : 0
+        })`
+      }}
       className="drum-pad"
       id={`pad-${button}`}
       onClick={playSound}
